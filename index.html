@@ -2,21 +2,37 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="src/burger.css">
+    <script>
+        (function () {
+            var burger = document.querySelector('.menu');
+            var menu = document.querySelector('#' + burger.data.target);
+            burger.addEventListener('click', function () {
+                burger.classList.toggle('is-active');
+                menu.classList.toggle('is-active');
+            });
+        })();
+    </script>
 </head>
 
 <body>
     <nav class="navbar is-light is-size-5 pb-1 px-4" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
+            <div class="is-hidden-desktop">
+                <input type="checkbox" class="menu-btn" id="menu-btn">
+                <label for="menu-btn" class="menu-icon"><span class="navicon"></span></label>
+                <ul class="menu">
+                    <li class="top"><a href="#home">home</a></li>
+                    <li><a href="#about">当院について</a></li>
+                    <li><a href="#staff">スタッフ紹介</a></li>
+                    <li><a href="#医療関係者様">医療関係者へ</a></li>
+                </ul>
+            </div>
             <a class="navbar-item has-text-weight-bold is-size-3" href="">
                 MM在宅クリニック
-            </a>
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
             </a>
         </div>
 
